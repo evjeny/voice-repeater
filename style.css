@@ -1,0 +1,88 @@
+:root {
+  --bg: #f7f7f8;
+  --card: #ffffff;
+  --text: #1b1b1f;
+  --muted: #5f6068;
+  --border: #d8d8de;
+  --accent: #3b5bdb;
+  --accent-text: #ffffff;
+  --stop: #d6336c;
+  --meter: #2f9e44;
+  --error: #c92a2a;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121214;
+    --card: #1c1c20;
+    --text: #ececf1;
+    --muted: #a0a1ab;
+    --border: #34343c;
+    --accent: #5c7cfa;
+    --stop: #e64980;
+    --meter: #51cf66;
+    --error: #ff6b6b;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+}
+main {
+  width: 100%;
+  max-width: 440px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px 20px;
+  margin-top: 5vh;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+h1 { margin: 0; font-size: 1.6rem; }
+.lead, .hint { margin: 0; color: var(--muted); }
+.hint { font-size: 0.9rem; }
+.field { display: flex; flex-direction: column; gap: 6px; font-weight: 600; }
+.field input {
+  font: inherit;
+  font-size: 1.4rem;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--text);
+  width: 100%;
+}
+.check { display: flex; gap: 10px; align-items: center; color: var(--muted); }
+.check input { width: 20px; height: 20px; }
+button {
+  font: inherit;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding: 18px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--accent);
+  color: var(--accent-text);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+button.running { background: var(--stop); }
+button:disabled { opacity: 0.6; cursor: wait; }
+.meter {
+  height: 10px;
+  border-radius: 5px;
+  background: var(--border);
+  overflow: hidden;
+}
+#meter-fill { height: 100%; width: 0%; background: var(--meter); transition: width 60ms linear; }
+#status { margin: 0; min-height: 1.5em; font-weight: 500; }
+#status.error { color: var(--error); }

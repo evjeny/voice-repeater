@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Voice Repeater</title>
+  <meta name="description" content="Hear your own voice back after a delay — instant feedback for singers.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Voice Repeater</h1>
+    <p class="lead">Sing, then hear yourself back automatically after the delay. No extra buttons.</p>
+
+    <label class="field">
+      <span>Delay (seconds)</span>
+      <input id="delay" type="number" inputmode="decimal" min="0" step="0.1" value="10">
+    </label>
+
+    <label class="check">
+      <input id="echo" type="checkbox">
+      <span>Echo cancellation (turn on if using speakers)</span>
+    </label>
+
+    <button id="toggle" type="button">Start</button>
+
+    <div class="meter" aria-hidden="true"><div id="meter-fill"></div></div>
+    <p id="status" role="status">Press Start and allow microphone access.</p>
+
+    <p class="hint">🎧 Use headphones for the best result, or the playback is picked up by the mic again.
+      You can change the delay while it's running.</p>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
